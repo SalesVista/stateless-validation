@@ -7,7 +7,7 @@ This package allows us to reuse the same validation logic between the UI/fronten
 ## Install
 
 ```console
-$ npm i --save github:itenneti/stateless-validation#semver:^1.0.0
+$ npm i --save github:itenneti/stateless-validation#v1.0.0
 ```
 
 ```js

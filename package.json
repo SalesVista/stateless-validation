@@ -1,0 +1,26 @@
+{
+  "name": "@itenneti/stateless-validation",
+  "version": "1.0.0",
+  "description": "Reusable validation logic as pure functions",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "standard",
+    "test": "tap test.js --100",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itenneti/stateless-validation.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/itenneti/stateless-validation/issues"
+  },
+  "homepage": "https://github.com/itenneti/stateless-validation#readme",
+  "devDependencies": {
+    "standard": "^10.0.3",
+    "standard-version": "^4.2.0",
+    "tap": "^10.7.3"
+  }
+}

@@ -41,7 +41,7 @@ A password is valid if it meets the following criteria:
 
 Accepts a single string and returns a boolean indicating if the given string is a valid email.
 
-A email is valid if it meets the following criteria:
+An email is valid if it meets the following criteria:
 
 - Conforms to the format of _{local-part}@{domain}_
 

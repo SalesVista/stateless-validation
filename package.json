@@ -1,6 +1,6 @@
 {
   "name": "@itenneti/stateless-validation",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Reusable validation logic as pure functions",
   "main": "index.js",
   "scripts": {

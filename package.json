@@ -25,5 +25,11 @@
   },
   "dependencies": {
     "email-addresses": "^3.0.1"
+  },
+  "standard-version": {
+    "scripts": {
+      "prebump": "mv package-lock.json package-lock-IGNORE.json",
+      "posttag": "mv package-lock-IGNORE.json package-lock.json"
+    }
   }
 }

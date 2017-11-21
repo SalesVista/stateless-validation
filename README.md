@@ -29,6 +29,23 @@ A slug is valid if it meets the following criteria:
 - Is 3 to 64 characters long
 - Consists of only lowercase letters, numbers, underscores, or hyphens
 
+### `sv.isValidPassword(string)`
+
+Accepts a single string and returns a boolean indicating if the given string is a valid password.
+
+A password is valid if it meets the following criteria:
+
+- Is at least 6 characters long
+
+### `sv.isValidEmail(string)`
+
+Accepts a single string and returns a boolean indicating if the given string is a valid email.
+
+A email is valid if it meets the following criteria:
+
+- Conforms to the format of _{local-part}@{domain}_
+
+
 ## Releasing
 
 After one or more PRs have been merged to master, you can cut a new release with the following commands:

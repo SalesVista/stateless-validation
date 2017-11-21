@@ -12,10 +12,9 @@ function isValidSlug (str) {
 }
 
 // can contain any characters
-// must be 6-64 characters
-const PASSWORD_REGEX = /^.{6,64}$/
+// must be at least 6 characters long
 function isValidPassword (str) {
-  return !!str && PASSWORD_REGEX.test(str)
+  return !!str && str.length > 5
 }
 
 // just re-use this other person's work

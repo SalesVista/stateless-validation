@@ -64,9 +64,9 @@ tap.test('isValidSlug > valid slugs', t => {
 
 tap.test('isValidPassword', t => {
   // invalid passwords
+  t.notOk(sv.isValidPassword())
   t.notOk(sv.isValidPassword(null))
   t.notOk(sv.isValidPassword('12345'))
-  t.notOk(sv.isValidPassword('this is over 64 characters this is over 64 characters this is ove'))
 
   // valid passwords
   t.ok(sv.isValidPassword('password'))
@@ -86,6 +86,16 @@ tap.test('isValidEmail', t => {
   t.notOk(sv.isValidEmail('a@'))
   t.notOk(sv.isValidEmail('@'))
   t.notOk(sv.isValidEmail('@a'))
+  t.notOk(sv.isValidEmail('plainaddress'))
+  t.notOk(sv.isValidEmail('#@%^%#$@#$@#.com'))
+  t.notOk(sv.isValidEmail('@example.com'))
+  t.notOk(sv.isValidEmail('email.example.com'))
+  t.notOk(sv.isValidEmail('email@example@example.com'))
+  t.notOk(sv.isValidEmail('.email@example.com'))
+  t.notOk(sv.isValidEmail('email.@example.com'))
+  t.notOk(sv.isValidEmail('email..email@example.com'))
+  t.notOk(sv.isValidEmail('email@example..com'))
+  t.notOk(sv.isValidEmail('Abc..123@example.com'))
   t.notOk(sv.isValidEmail('“(),:;<>[\\]@example.com'))
   t.notOk(sv.isValidEmail('just"not"right@example.com'))
   t.notOk(sv.isValidEmail('just"not"right@example.com'))
@@ -112,5 +122,11 @@ tap.test('isValidEmail', t => {
   t.ok(sv.isValidEmail('firstname-lastname@example.com'))
   t.ok(sv.isValidEmail('test@example'))
   t.ok(sv.isValidEmail('br@d'))
+  t.ok(sv.isValidEmail('Joe Smith <email@example.com>'))
+  t.ok(sv.isValidEmail('あいうえお@example.com'))
+  t.ok(sv.isValidEmail('email@example.com (Joe Smith)'))
+  t.ok(sv.isValidEmail('email@-example.com'))
+  t.ok(sv.isValidEmail('email@example.web'))
+  t.ok(sv.isValidEmail('email@111.222.333.44444'))
   t.end()
 })

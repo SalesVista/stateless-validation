@@ -22,5 +22,8 @@
     "standard": "^10.0.3",
     "standard-version": "^4.2.0",
     "tap": "^10.7.3"
+  },
+  "dependencies": {
+    "email-addresses": "^3.0.1"
   }
 }

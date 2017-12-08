@@ -12,8 +12,11 @@
     "type": "git",
     "url": "git+https://github.com/itenneti/stateless-validation.git"
   },
-  "author": "",
-  "license": "UNLICENSED",
+  "contributors": [
+    "nexdrew",
+    "broanius"
+  ],
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/itenneti/stateless-validation/issues"
   },

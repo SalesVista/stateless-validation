@@ -7,7 +7,7 @@ This package allows us to reuse the same validation logic between the UI/fronten
 ## Install
 
 ```console
-$ npm i --save github:itenneti/stateless-validation#v1.0.0
+$ npm i --save @itenneti/stateless-validation
 ```
 
 ```js
@@ -54,11 +54,12 @@ After one or more PRs have been merged to master, you can cut a new release with
 # update local master branch
 git checkout master && git pull origin master
 # make sure tests pass
-npm t
+npm it
 # bump version, update changelog, and create git tag
 npm run release
 # push release to github
 git push -u --follow-tags origin master
+npm publish --access public
 ```
 
 Then you can update the version referenced by any apps/packages that use this as a dependency.

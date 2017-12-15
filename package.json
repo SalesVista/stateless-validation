@@ -7,11 +7,10 @@
     "lib/index.js"
   ],
   "scripts": {
-    "build": "babel src -d lib",
-    "pretest": "standard && npm run build",
+    "prepare": "babel src -d lib",
+    "pretest": "standard && npm run prepare",
     "test": "tap test.js --100",
-    "release": "standard-version",
-    "prepublish": "npm run build"
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -37,7 +36,9 @@
     "email-addresses": "^3.0.1"
   },
   "babel": {
-    "presets": ["env"]
+    "presets": [
+      "env"
+    ]
   },
   "standard-version": {
     "scripts": {

@@ -2,7 +2,7 @@
 
 const tap = require('tap')
 
-const sv = require('./')
+const sv = require('./lib/index')
 
 tap.test('isValidSlug > invalid slugs', t => {
   // invalid strings

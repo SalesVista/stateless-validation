@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/itenneti/stateless-validation/compare/v1.1.1...v1.2.0) (2017-12-15)
+
+
+### Features
+
+* babel before publishing ([#3](https://github.com/itenneti/stateless-validation/issues/3)) ([503bed2](https://github.com/itenneti/stateless-validation/commit/503bed2))
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/itenneti/stateless-validation/compare/v1.1.0...v1.1.1) (2017-12-08)
 

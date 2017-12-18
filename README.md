@@ -2,6 +2,11 @@
 
 > Reusable validation logic as pure functions
 
+[![Build Status](https://travis-ci.org/itenneti/stateless-validation.svg?branch=master)](https://travis-ci.org/itenneti/stateless-validation)
+[![Coverage Status](https://coveralls.io/repos/github/itenneti/stateless-validation/badge.svg?branch=master)](https://coveralls.io/github/itenneti/stateless-validation?branch=master)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+
 This package allows us to reuse the same validation logic between the UI/frontend and the REST API/backend.
 
 ## Install

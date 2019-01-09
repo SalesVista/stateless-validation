@@ -1,5 +1,5 @@
 {
-  "name": "@itenneti/stateless-validation",
+  "name": "@salesvista/stateless-validation",
   "version": "1.2.0",
   "description": "Reusable validation logic as pure functions",
   "main": "lib/index.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/itenneti/stateless-validation.git"
+    "url": "git+https://github.com/SalesVista/stateless-validation.git"
   },
   "contributors": [
     "nexdrew",
@@ -23,29 +23,23 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/itenneti/stateless-validation/issues"
+    "url": "https://github.com/SalesVista/stateless-validation/issues"
   },
-  "homepage": "https://github.com/itenneti/stateless-validation#readme",
+  "homepage": "https://github.com/SalesVista/stateless-validation#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "coveralls": "^3.0.0",
-    "standard": "^10.0.3",
-    "standard-version": "^4.2.0",
-    "tap": "^10.7.3"
+    "babel-preset-env": "^1.7.0",
+    "coveralls": "^3.0.2",
+    "standard": "^12.0.1",
+    "standard-version": "^4.4.0",
+    "tap": "^12.1.1"
   },
   "dependencies": {
-    "email-addresses": "^3.0.1"
+    "email-addresses": "^3.0.3"
   },
   "babel": {
     "presets": [
       "env"
     ]
-  },
-  "standard-version": {
-    "scripts": {
-      "prebump": "mv package-lock.json package-lock-IGNORE.json",
-      "posttag": "mv package-lock-IGNORE.json package-lock.json"
-    }
   }
 }

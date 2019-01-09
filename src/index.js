@@ -2,10 +2,10 @@
 
 const isEmail = require('email-addresses').parseOneAddress
 
-// must start with letter
+// must start with lowercase letter
 // must be 3-64 characters
-// can only contain letters, numbers, underscore, or hyphen
-const SLUG_REGEX = /^[A-Za-z]{1}[A-Za-z0-9_-]{2,63}$/
+// can only contain lowercase letters, numbers, underscore, or hyphen
+const SLUG_REGEX = /^[a-z]{1}[a-z0-9_-]{2,63}$/
 
 function isValidSlug (str) {
   return !!str && SLUG_REGEX.test(str)

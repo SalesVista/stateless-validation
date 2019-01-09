@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.1"></a>
+## [1.3.1](https://github.com/SalesVista/stateless-validation/compare/v1.3.0...v1.3.1) (2019-01-09)
+
+
+### Bug Fixes
+
+* revert support for uppercase in slug ([#8](https://github.com/SalesVista/stateless-validation/issues/8)) ([407dcec](https://github.com/SalesVista/stateless-validation/commit/407dcec))
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/SalesVista/stateless-validation/compare/v1.2.0...v1.3.0) (2019-01-09)
 

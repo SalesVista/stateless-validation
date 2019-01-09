@@ -1,5 +1,5 @@
 {
-  "name": "@itenneti/stateless-validation",
+  "name": "@salesvista/stateless-validation",
   "version": "1.2.0",
   "description": "Reusable validation logic as pure functions",
   "main": "lib/index.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/itenneti/stateless-validation.git"
+    "url": "git+https://github.com/SalesVista/stateless-validation.git"
   },
   "contributors": [
     "nexdrew",
@@ -23,9 +23,9 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/itenneti/stateless-validation/issues"
+    "url": "https://github.com/SalesVista/stateless-validation/issues"
   },
-  "homepage": "https://github.com/itenneti/stateless-validation#readme",
+  "homepage": "https://github.com/SalesVista/stateless-validation#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",

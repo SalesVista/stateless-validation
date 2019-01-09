@@ -18,6 +18,11 @@ tap.test('isValidSlug > invalid slugs', t => {
   t.notOk(sv.isValidSlug('1aa'))
   t.notOk(sv.isValidSlug('_aa'))
   t.notOk(sv.isValidSlug('-aa'))
+  // uppercase not allowed
+  t.notOk(sv.isValidSlug('BOB'))
+  t.notOk(sv.isValidSlug('Bob'))
+  t.notOk(sv.isValidSlug('boB'))
+  t.notOk(sv.isValidSlug('SalesVista'))
   // invalid characters
   t.notOk(sv.isValidSlug('a b'))
   t.notOk(sv.isValidSlug('a`b'))
@@ -55,12 +60,6 @@ tap.test('isValidSlug > valid slugs', t => {
   t.ok(sv.isValidSlug('a_b'))
   t.ok(sv.isValidSlug('a-b'))
   t.ok(sv.isValidSlug('abc_110ec58a-a0f2-4ac4-8393-c866d813b8d1_23456789012345678901234'))
-
-  // uppercase allowed as of v1.3.0
-  t.ok(sv.isValidSlug('BOB'))
-  t.ok(sv.isValidSlug('Bob'))
-  t.ok(sv.isValidSlug('boB'))
-  t.ok(sv.isValidSlug('SalesVista'))
   t.end()
 })
 

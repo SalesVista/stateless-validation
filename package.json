@@ -41,11 +41,5 @@
     "presets": [
       "env"
     ]
-  },
-  "standard-version": {
-    "scripts": {
-      "prebump": "mv package-lock.json package-lock-IGNORE.json",
-      "posttag": "mv package-lock-IGNORE.json package-lock.json"
-    }
   }
 }

@@ -30,9 +30,9 @@ Accepts a single string and returns a boolean indicating if the given string is 
 
 A slug is valid if it meets the following criteria:
 
-- Starts with a lowercase letter
+- Starts with a letter
 - Is 3 to 64 characters long
-- Consists of only lowercase letters, numbers, underscores, or hyphens
+- Consists of only letters, numbers, underscores, or hyphens
 
 ### `sv.isValidPassword(string)`
 

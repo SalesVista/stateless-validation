@@ -34,6 +34,31 @@ A slug is valid if it meets the following criteria:
 - Is 3 to 64 characters long
 - Consists of only lowercase letters, numbers, underscores, or hyphens
 
+### `sv.convertToSlug(string, opts)`
+
+Convert the given string into a valid slug.
+
+Accepts a single string (and an optional object) and returns a string.
+
+The conversion process includes:
+
+- coercing the argument into a string
+- replacing whitespace with either `'_'` or a given `opts.whitespaceReplacement`
+- removing non-alphanumeric characters
+- converting to lower-case
+- truncating to first 64 characters
+- potentially prepending a portion of `'abc'` or a given `opts.prefix` to make the slug valid
+
+Options accepted:
+
+- `opts.whitespaceReplacement`: string, default `'_'`
+
+    What to replace any whitespace with. Must make a valid slug to be used. An empty string will remove whitespace.
+
+- `opts.prefix`: string, default `'abc'`
+
+    Used to turn an invalid slug (one not starting with a letter) into a valid slug, by prepending up to 3 characters of this string to the converted value.
+
 ### `sv.isValidPassword(string)`
 
 Accepts a single string and returns a boolean indicating if the given string is a valid password.

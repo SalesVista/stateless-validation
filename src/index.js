@@ -32,7 +32,8 @@ function convertToSlug (str, opts) {
   if (isValidSlug(slug)) return slug
 
   const prefix = isValidSlug(opts.prefix) ? opts.prefix : DEFAULT_SLUG_PREFIX
-  return (prefix.slice(0, Math.max(SLUG_MIN_LENGTH - slug.length, 1)) + slug).slice(0, SLUG_MAX_LENGTH)
+  const pre = opts.scroll ? prefix.slice(0, Math.max(SLUG_MIN_LENGTH - slug.length, 1)) : prefix
+  return (pre + slug).slice(0, SLUG_MAX_LENGTH)
 }
 
 // can contain any characters

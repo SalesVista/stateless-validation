@@ -59,6 +59,10 @@ Options accepted:
 
     Used to turn an invalid slug (one not starting with a letter) into a valid slug, by prepending up to 3 characters of this string to the converted value.
 
+- `opts.scroll`: boolean, default `false`
+
+    Use a "scroll from right" algorithm when using the prefix to make the slug valid. The default algorithm prepends the entire prefix (when necessary), whereas the "scroll" algorithm only prepends a minimal number of characters from the prefix to make the slug valid (i.e. only uses 1 to 3 characters of the prefix instead of the whole thing).
+
 ### `sv.isValidPassword(string)`
 
 Accepts a single string and returns a boolean indicating if the given string is a valid password.

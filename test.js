@@ -65,34 +65,65 @@ tap.test('isValidSlug > valid slugs', t => {
 
 tap.test('convertToSlug > no opts', t => {
   t.strictEqual(sv.convertToSlug('One Two Three, LLC'), 'one_two_three_llc')
-  t.strictEqual(sv.convertToSlug('1.2.3 ABC Corp'), 'a123_abc_corp')
-  t.strictEqual(sv.convertToSlug('1@gmail.com'), 'a1gmailcom')
+  t.strictEqual(sv.convertToSlug('1.2.3 ABC Corp'), 'abc123_abc_corp')
+  t.strictEqual(sv.convertToSlug('1@gmail.com'), 'abc1gmailcom')
   t.strictEqual(sv.convertToSlug('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante leo'), 'lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_vestibulu')
   t.strictEqual(sv.convertToSlug('包'), 'abc')
   t.strictEqual(sv.convertToSlug(), 'undefined')
   t.strictEqual(sv.convertToSlug(null), 'null')
   t.strictEqual(sv.convertToSlug(''), 'abc')
-  t.strictEqual(sv.convertToSlug(' '), 'ab_')
-  t.strictEqual(sv.convertToSlug('  '), 'a__')
-  t.strictEqual(sv.convertToSlug('   '), 'a___')
-  t.strictEqual(sv.convertToSlug(1), 'ab1')
-  t.strictEqual(sv.convertToSlug(12), 'a12')
-  t.strictEqual(sv.convertToSlug(1.2), 'a12')
-  t.strictEqual(sv.convertToSlug(1.2345), 'a12345')
+  t.strictEqual(sv.convertToSlug(' '), 'abc_')
+  t.strictEqual(sv.convertToSlug('  '), 'abc__')
+  t.strictEqual(sv.convertToSlug('   '), 'abc___')
+  t.strictEqual(sv.convertToSlug(1), 'abc1')
+  t.strictEqual(sv.convertToSlug(12), 'abc12')
+  t.strictEqual(sv.convertToSlug(1.2), 'abc12')
+  t.strictEqual(sv.convertToSlug(1.2345), 'abc12345')
   t.strictEqual(sv.convertToSlug(true), 'true')
   t.strictEqual(sv.convertToSlug(false), 'false')
-  t.strictEqual(sv.convertToSlug(/x/), 'abx')
+  t.strictEqual(sv.convertToSlug(/x/), 'abcx')
   t.strictEqual(sv.convertToSlug({}), 'object_object')
   t.strictEqual(sv.convertToSlug([]), 'abc')
-  t.strictEqual(sv.convertToSlug([1]), 'ab1')
-  t.strictEqual(sv.convertToSlug([1, 'x']), 'a1x')
+  t.strictEqual(sv.convertToSlug([1]), 'abc1')
+  t.strictEqual(sv.convertToSlug([1, 'x']), 'abc1x')
   t.strictEqual(sv.convertToSlug(function x () {}), 'function_x__')
-  t.strictEqual(sv.convertToSlug(() => {}), 'a__')
+  t.strictEqual(sv.convertToSlug(() => {}), 'abc__')
   t.ok(sv.isValidSlug(sv.convertToSlug(new Date())))
   t.end()
 })
 
-tap.test('convertToSlug > opts', t => {
+tap.test('convertToSlug > scroll', t => {
+  const scroll = { scroll: true }
+  t.strictEqual(sv.convertToSlug('One Two Three, LLC', scroll), 'one_two_three_llc')
+  t.strictEqual(sv.convertToSlug('1.2.3 ABC Corp', scroll), 'a123_abc_corp')
+  t.strictEqual(sv.convertToSlug('1@gmail.com', scroll), 'a1gmailcom')
+  t.strictEqual(sv.convertToSlug('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante leo', scroll), 'lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_vestibulu')
+  t.strictEqual(sv.convertToSlug('包', scroll), 'abc')
+  let u
+  t.strictEqual(sv.convertToSlug(u, scroll), 'undefined')
+  t.strictEqual(sv.convertToSlug(null, scroll), 'null')
+  t.strictEqual(sv.convertToSlug('', scroll), 'abc')
+  t.strictEqual(sv.convertToSlug(' ', scroll), 'ab_')
+  t.strictEqual(sv.convertToSlug('  ', scroll), 'a__')
+  t.strictEqual(sv.convertToSlug('   ', scroll), 'a___')
+  t.strictEqual(sv.convertToSlug(1, scroll), 'ab1')
+  t.strictEqual(sv.convertToSlug(12, scroll), 'a12')
+  t.strictEqual(sv.convertToSlug(1.2, scroll), 'a12')
+  t.strictEqual(sv.convertToSlug(1.2345, scroll), 'a12345')
+  t.strictEqual(sv.convertToSlug(true, scroll), 'true')
+  t.strictEqual(sv.convertToSlug(false, scroll), 'false')
+  t.strictEqual(sv.convertToSlug(/x/, scroll), 'abx')
+  t.strictEqual(sv.convertToSlug({}, scroll), 'object_object')
+  t.strictEqual(sv.convertToSlug([], scroll), 'abc')
+  t.strictEqual(sv.convertToSlug([1], scroll), 'ab1')
+  t.strictEqual(sv.convertToSlug([1, 'x'], scroll), 'a1x')
+  t.strictEqual(sv.convertToSlug(function x () {}, scroll), 'function_x__')
+  t.strictEqual(sv.convertToSlug(() => {}, scroll), 'a__')
+  t.ok(sv.isValidSlug(sv.convertToSlug(new Date(), scroll)))
+  t.end()
+})
+
+tap.test('convertToSlug > other opts', t => {
   // valid opts
   t.strictEqual(
     sv.convertToSlug('One Two Three, LLC', { whitespaceReplacement: '-' }),
@@ -108,10 +139,16 @@ tap.test('convertToSlug > opts', t => {
   )
   t.strictEqual(
     sv.convertToSlug('1.2.3 ABC Corp', { whitespaceReplacement: '', prefix: 'salesvista' }),
+    'salesvista123abccorp'
+  )
+  t.strictEqual(
+    sv.convertToSlug('1.2.3 ABC Corp', { whitespaceReplacement: '', prefix: 'salesvista', scroll: true }),
     's123abccorp'
   )
-  t.strictEqual(sv.convertToSlug('', { prefix: 'luvmuffin' }), 'luv')
-  t.strictEqual(sv.convertToSlug('1 2', { prefix: 'luvmuffin' }), 'l1_2')
+  t.strictEqual(sv.convertToSlug('', { prefix: 'luvmuffin' }), 'luvmuffin')
+  t.strictEqual(sv.convertToSlug('1 2', { prefix: 'luvmuffin' }), 'luvmuffin1_2')
+  t.strictEqual(sv.convertToSlug('', { prefix: 'luvmuffin', scroll: true }), 'luv')
+  t.strictEqual(sv.convertToSlug('1 2', { prefix: 'luvmuffin', scroll: true }), 'l1_2')
 
   // invalid/ignored opts
   t.strictEqual(
@@ -123,11 +160,14 @@ tap.test('convertToSlug > opts', t => {
     'one_two_three'
   )
   t.strictEqual(sv.convertToSlug('', { prefix: '123' }), 'abc') // prefix must be valid slug
-  t.strictEqual(sv.convertToSlug('1 2', { prefix: '123' }), 'a1_2')
+  t.strictEqual(sv.convertToSlug('1 2', { prefix: '123' }), 'abc1_2')
+  t.strictEqual(sv.convertToSlug('1 2', { prefix: '123', scroll: true }), 'a1_2')
   t.strictEqual(sv.convertToSlug('', { prefix: 'x' }), 'abc')
-  t.strictEqual(sv.convertToSlug('1 2', { prefix: 'x' }), 'a1_2')
+  t.strictEqual(sv.convertToSlug('1 2', { prefix: 'x' }), 'abc1_2')
+  t.strictEqual(sv.convertToSlug('1 2', { prefix: 'x', scroll: true }), 'a1_2')
   t.strictEqual(sv.convertToSlug('', { prefix: 'XYZ' }), 'abc')
-  t.strictEqual(sv.convertToSlug('1 2', { prefix: 'XYZ' }), 'a1_2')
+  t.strictEqual(sv.convertToSlug('1 2', { prefix: 'XYZ' }), 'abc1_2')
+  t.strictEqual(sv.convertToSlug('1 2', { prefix: 'XYZ', scroll: true }), 'a1_2')
 
   t.end()
 })

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/SalesVista/stateless-validation/compare/v1.3.1...v1.4.0) (2019-01-17)
+
+
+### Features
+
+* add convertToSlug function ([#9](https://github.com/SalesVista/stateless-validation/issues/9)) ([27bbdd5](https://github.com/SalesVista/stateless-validation/commit/27bbdd5))
+
+
+
 <a name="1.3.1"></a>
 ## [1.3.1](https://github.com/SalesVista/stateless-validation/compare/v1.3.0...v1.3.1) (2019-01-09)
 

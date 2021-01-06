@@ -8,7 +8,6 @@ jobs:
     env:
       COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
     runs-on: ubuntu-latest
-    fast-fail: false
     strategy:
       matrix:
         node-version:

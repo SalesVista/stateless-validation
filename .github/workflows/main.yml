@@ -6,6 +6,7 @@ jobs:
   test:
     name: Node.js ${{ matrix.node-version }}
     runs-on: ubuntu-latest
+    fast-fail: false
     strategy:
       matrix:
         node-version:

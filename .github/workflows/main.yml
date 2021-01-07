@@ -23,10 +23,18 @@ jobs:
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
       - uses: rtCamp/action-slack-notify@v2
-        if: ${{ always() }}
+        if: ${{ success() }}
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_CHANNEL: github
           SLACK_ICON: https://storage.googleapis.com/iten-img-dev/logo/github_inverted.png
           SLACK_USERNAME: Not GitHub
-          SLACK_COLOR: ${{ (success() && '#2EB886') || '#DC143C' }}
+          SLACK_COLOR: '#2EB886'
+      - uses: rtCamp/action-slack-notify@v2
+        if: ${{ !success() }}
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_CHANNEL: github
+          SLACK_ICON: https://storage.googleapis.com/iten-img-dev/logo/github_inverted.png
+          SLACK_USERNAME: Not GitHub
+          SLACK_COLOR: '#DC143C'

@@ -9,6 +9,7 @@ jobs:
     strategy:
       matrix:
         node-version:
+          # - latest (aliases not yet supported, see https://github.com/actions/setup-node/issues/26)
           - 14
           - 12
     steps:

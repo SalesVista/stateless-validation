@@ -14,7 +14,7 @@ const DEFAULT_WHITESPACE_REPLACEMENT = '_'
 const DEFAULT_WHITESPACE_REPLACEMENT_RE = new RegExp(DEFAULT_WHITESPACE_REPLACEMENT, 'g')
 
 function isValidSlug (str) {
-  return !!str && SLUG_REGEX.test(str);
+  return !!str && SLUG_REGEX.test(str)
 }
 
 function convertToSlug (str, opts) {

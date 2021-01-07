@@ -2,7 +2,7 @@
 
 > Reusable validation logic as pure functions
 
-[![Build Status](https://travis-ci.org/SalesVista/stateless-validation.svg?branch=master)](https://travis-ci.org/SalesVista/stateless-validation)
+[![CI Status](https://github.com/SalesVista/stateless-validation/workflows/CI/badge.svg?branch=master)](https://github.com/SalesVista/stateless-validation/actions)
 [![Coverage Status](https://coveralls.io/repos/github/SalesVista/stateless-validation/badge.svg?branch=master)](https://coveralls.io/github/SalesVista/stateless-validation?branch=master)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)

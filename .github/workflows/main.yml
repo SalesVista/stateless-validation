@@ -10,8 +10,8 @@ jobs:
       matrix:
         node-version:
           # - latest (aliases not yet supported, see https://github.com/actions/setup-node/issues/26)
+          - 16
           - 14
-          - 12
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1

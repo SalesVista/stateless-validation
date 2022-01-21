@@ -180,7 +180,7 @@ tap.test('isValidPassword', t => {
 
   // valid passwords
   t.ok(sv.isValidPassword('password1234'))
-  t.ok(sv.isValidPassword('!@#$%$^&*()'))
+  t.ok(sv.isValidPassword('!@#$%$^&*()#'))
   t.ok(sv.isValidPassword('undefinedabcd'))
   t.ok(sv.isValidPassword('   some super cool long password that nobody knows'))
   t.ok(sv.isValidPassword('           '))

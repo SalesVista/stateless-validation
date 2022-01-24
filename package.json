@@ -1,6 +1,6 @@
 {
   "name": "@salesvista/stateless-validation",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "Reusable validation logic as pure functions",
   "main": "lib/index.js",
   "files": [

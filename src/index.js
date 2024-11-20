@@ -37,9 +37,9 @@ function convertToSlug (str, opts) {
 }
 
 // can contain any characters
-// must be at least 12 characters long
+// must be at least 16 characters long
 function isValidPassword (str) {
-  return !!str && str.length > 11
+  return !!str && str.length > 15
 }
 
 // just re-use this other person's work

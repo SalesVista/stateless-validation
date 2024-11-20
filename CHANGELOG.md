@@ -1,6 +1,17 @@
-# Change Log
+# Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [3.0.0](https://github.com/SalesVista/stateless-validation/compare/v2.0.0...v3.0.0) (2024-11-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* 12 character passwords are no longer valid. New passwords need to be at least 16 characters.
+
+### Features
+
+* set password requirement to 16 chars ([#14](https://github.com/SalesVista/stateless-validation/issues/14)) ([f0ca377](https://github.com/SalesVista/stateless-validation/commit/f0ca377e9d4129ff5af6d7d19084173f41a6eb0a))
 
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/SalesVista/stateless-validation/compare/v1.4.0...v2.0.0) (2022-01-24)

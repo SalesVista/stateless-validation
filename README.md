@@ -69,7 +69,7 @@ Accepts a single string and returns a boolean indicating if the given string is 
 
 A password is valid if it meets the following criteria:
 
-- Is at least 6 characters long
+- Is at least 16 characters long
 
 ### `sv.isValidEmail(string)`
 

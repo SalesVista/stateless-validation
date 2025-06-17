@@ -9,29 +9,38 @@ const isEmail = require('email-addresses').parseOneAddress
 const SLUG_MIN_LENGTH = 3
 const SLUG_MAX_LENGTH = 64
 const SLUG_REGEX = new RegExp(`^[a-z]{1}[a-z0-9_-]{${SLUG_MIN_LENGTH - 1},${SLUG_MAX_LENGTH - 1}}$`)
+const SLUG_REGEX_NO_HYPHEN = new RegExp(`^[a-z]{1}[a-z0-9_]{${SLUG_MIN_LENGTH - 1},${SLUG_MAX_LENGTH - 1}}$`)
 const DEFAULT_SLUG_PREFIX = 'abc' // MUST be a valid slug!
 const DEFAULT_WHITESPACE_REPLACEMENT = '_'
 const DEFAULT_WHITESPACE_REPLACEMENT_RE = new RegExp(DEFAULT_WHITESPACE_REPLACEMENT, 'g')
+const DEFAULT_HYPHEN_REPLACEMENT = '_'
 
-function isValidSlug (str) {
-  return !!str && SLUG_REGEX.test(str)
+function isValidSlug (str, opts) {
+  opts = opts || {}
+  const allowHyphen = opts.allowHyphen !== false
+  const regex = allowHyphen ? SLUG_REGEX : SLUG_REGEX_NO_HYPHEN
+  return !!str && regex.test(str)
 }
 
 function convertToSlug (str, opts) {
   opts = opts || {}
+  const allowHyphen = opts.allowHyphen !== false
+  const hyphenReplacement = typeof opts.hyphenReplacement === 'string' ? opts.hyphenReplacement : DEFAULT_HYPHEN_REPLACEMENT
 
-  let slug = String(str).replace(/\s/g, DEFAULT_WHITESPACE_REPLACEMENT).replace(/\W/g, '').toLowerCase()
+  let slug = String(str).replace(/\s/g, DEFAULT_WHITESPACE_REPLACEMENT)
+  if (!allowHyphen) slug = slug.replace(/-/g, hyphenReplacement)
+  const cleanRe = allowHyphen ? /[^A-Za-z0-9_-]/g : /[^A-Za-z0-9_]/g
+  slug = slug.replace(cleanRe, '').toLowerCase()
   if (
     typeof opts.whitespaceReplacement === 'string' &&
     opts.whitespaceReplacement !== DEFAULT_WHITESPACE_REPLACEMENT &&
-    isValidSlug(DEFAULT_SLUG_PREFIX + opts.whitespaceReplacement)
+    isValidSlug(DEFAULT_SLUG_PREFIX + opts.whitespaceReplacement, { allowHyphen })
   ) {
     slug = slug.replace(DEFAULT_WHITESPACE_REPLACEMENT_RE, opts.whitespaceReplacement)
   }
   slug = slug.slice(0, SLUG_MAX_LENGTH)
-  if (isValidSlug(slug)) return slug
-
-  const prefix = isValidSlug(opts.prefix) ? opts.prefix : DEFAULT_SLUG_PREFIX
+  if (isValidSlug(slug, { allowHyphen })) return slug
+  const prefix = isValidSlug(opts.prefix, { allowHyphen }) ? opts.prefix : DEFAULT_SLUG_PREFIX
   const pre = opts.scroll ? prefix.slice(0, Math.max(SLUG_MIN_LENGTH - slug.length, 1)) : prefix
   return (pre + slug).slice(0, SLUG_MAX_LENGTH)
 }

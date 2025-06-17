@@ -63,6 +63,12 @@ tap.test('isValidSlug > valid slugs', t => {
   t.end()
 })
 
+tap.test('isValidSlug > allowHyphen false', t => {
+  t.notOk(sv.isValidSlug('a-b', { allowHyphen: false }))
+  t.ok(sv.isValidSlug('a_b', { allowHyphen: false }))
+  t.end()
+})
+
 tap.test('convertToSlug > no opts', t => {
   t.strictEqual(sv.convertToSlug('One Two Three, LLC'), 'one_two_three_llc')
   t.strictEqual(sv.convertToSlug('1.2.3 ABC Corp'), 'abc123_abc_corp')
@@ -169,6 +175,19 @@ tap.test('convertToSlug > other opts', t => {
   t.strictEqual(sv.convertToSlug('1 2', { prefix: 'XYZ' }), 'abc1_2')
   t.strictEqual(sv.convertToSlug('1 2', { prefix: 'XYZ', scroll: true }), 'a1_2')
 
+  t.end()
+})
+
+tap.test('convertToSlug > allowHyphen false', t => {
+  t.strictEqual(sv.convertToSlug('foo-bar', { allowHyphen: false }), 'foo_bar')
+  t.strictEqual(
+    sv.convertToSlug('foo-bar', { allowHyphen: false, hyphenReplacement: '' }),
+    'foobar'
+  )
+  t.strictEqual(
+    sv.convertToSlug('foo bar', { allowHyphen: false, whitespaceReplacement: '-' }),
+    'foo_bar'
+  )
   t.end()
 })
 

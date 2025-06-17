@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.1.0](https://github.com/SalesVista/stateless-validation/compare/v3.0.0...v3.1.0) (2025-06-17)
+
+
+### Features
+
+* hyphens optional ([#15](https://github.com/SalesVista/stateless-validation/issues/15)) ([e40930d](https://github.com/SalesVista/stateless-validation/commit/e40930d40ab134a68f3b97896d74a5c041b3d0ce))
+
 ## [3.0.0](https://github.com/SalesVista/stateless-validation/compare/v2.0.0...v3.0.0) (2024-11-20)
 
 

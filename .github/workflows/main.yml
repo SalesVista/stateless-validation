@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node_version:
+        node-version:
           # - latest (aliases not yet supported, see https://github.com/actions/setup-node/issues/26)
           - 20
           - 16
@@ -18,10 +18,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup node ${{ matrix.node_version }}
+      - name: Setup node ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node_version }}
+          node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
         run: npm install

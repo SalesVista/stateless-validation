@@ -33,6 +33,7 @@ A slug is valid if it meets the following criteria:
 - Starts with a lowercase letter
 - Is 3 to 64 characters long
 - Consists of only lowercase letters, numbers, underscores, or hyphens
+- hyphens can be disabled with option `{ allowHyphen: false }`
 
 ### `sv.convertToSlug(string, opts)`
 
@@ -62,6 +63,14 @@ Options accepted:
 - `opts.scroll`: boolean, default `false`
 
     Use a "scroll from right" algorithm when using the prefix to make the slug valid. The default algorithm prepends the entire prefix (when necessary), whereas the "scroll" algorithm only prepends a minimal number of characters from the prefix to make the slug valid (i.e. only uses 1 to 3 characters of the prefix instead of the whole thing).
+
+- `opts.allowHyphen`: boolean, default `true`
+
+    When `false`, hyphens are not valid in slugs. `convertToSlug` will replace any hyphen characters using `opts.hyphenReplacement`.
+
+- `opts.hyphenReplacement`: string, default `'_'`
+
+    What to replace hyphens with when `allowHyphen` is `false`. Set to an empty string to remove them entirely.
 
 ### `sv.isValidPassword(string)`
 
